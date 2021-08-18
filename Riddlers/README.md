@@ -2,6 +2,10 @@
 
 The news website [fivethirtyeight.com](https://fivethirtyeight.com/) publishes two weekly puzzles, called the Riddler Express and Riddler Classic. This part of the repository holds my solutions to some of the puzzles. Many have a programming element, but not all do. Some of the more recent ones also have a report summarizing my work.
 
+Each Riddler below has a short description, along with the link to the problem online. I'd recommend following that link to get an understanding of the problem.
+
+If you are just browsing, some favorites of mine I want to highlight are [Reset Die](Reset%20Die/), [Veinte](Veinte/), and [Jenga](Jenga/).
+
 - **[Chess Pathfinding](Chess%20Pathfinding/)**
   - [Riddler Express, 7/23/21](https://fivethirtyeight.com/features/can-you-hop-across-the-chessboard/)
   - Navigate across a chessboard covered in pieces, following the movement rules for each piece.
