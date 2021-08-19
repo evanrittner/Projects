@@ -4,7 +4,7 @@
   <img src="/Dartboard/dartboard.svg" width="400"/>
 </p>
 
-If you've played some darts, you'll know that the highest-scoring region on a dartboard isn't actually the bullseye. The inner bullseye scores fifty points, while the triple-twenty scores sixty. So why not just aim for the triple-twenty instead? Well, it's riskier: if you miss the inner bullseye, you might hit the 25-point outer bullseye, but if you miss the triple-twenty, you might hit the five or the one, both very low scoring. 
+If you've played some darts, you'll know that the highest-scoring region on a dartboard isn't actually the bullseye. The inner bullseye scores fifty points, while the triple-twenty scores 60. So why not just aim for the triple-twenty instead? Well, it's riskier: if you miss the inner bullseye, you might hit the 25-point outer bullseye, but if you miss the triple-twenty, you might hit the five or the one, both very low scoring. 
 
 This line of reasoning led me to hypothesize that a perfectly accurate player will aim for the triple-twenty, but there is some threshold of accuracy after which less accurate players should aim for the bullseye.
 
@@ -15,7 +15,7 @@ I wanted to make this rigorous. I also had further questions: at that accuracy t
 
 The optimal target on the board in darts varies as follows: For players with very high accuracy, the optimal target is the center of the triple-twenty. As accuracy decreases, the optimal target jumps discontinuously to the triple-19. As it decreases further, approaching no accuracy at all, the optimal target moves towards the center of the board, spiralling slightly clockwise to stay near the triple ring, eventually ending at the bullseye.
 
-The threshold of accuracy at which the discontinuous jump occurs is difficult to quantify, but if you can hit either the inner or outer bullseyes at least 1/3 of the time, you are accurate enough.
+The threshold of accuracy at which the discontinuous jump occurs is difficult to quantify, as I'll explain in the next paragraph, but if you can hit either the inner or outer bullseye at least 1/3 of the time, you are accurate enough.
 
 
 ## Methodology
@@ -54,3 +54,20 @@ A short script to keep `gen_array` processes running continuously on the Raspber
 
 #### [`draw_dartboard.py`](/Dartboard/draw_dartboard.py) and [`draw_dartboard_outline.py`](/Dartboard/draw_dartboard.py)
 Two scripts to generate the dartboard vector graphics for use in this README and as the overlays for output images, respectively, using Pycairo.
+
+
+## Gallery
+
+Below are the three ways I generated images, for the data corresponding to σ = 0.1: with contours, with a dartboard overlay, and without anything extra.
+
+<p align="middle">
+  <img src="/Dartboard/output/contour_images/010.png" width="1000"/>
+</p>
+
+<p align="middle">
+  <img src="/Dartboard/output/overlaid_images/010.png" width="1000"/>
+</p>
+
+<p align="middle">
+  <img src="/Dartboard/output/raw_images/010.png" width="1000"/>
+</p>
