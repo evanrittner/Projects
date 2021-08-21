@@ -1,3 +1,5 @@
+/* Code to generate the data to allow a person to estimate their darts throw standard deviation */
+
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

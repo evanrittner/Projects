@@ -1,3 +1,5 @@
+# Script to generate an image from the dartboard data, using the "Magma" colormap
+
 import numpy as np
 from math import floor
 from matplotlib import cm

@@ -1,3 +1,5 @@
+# Script to run gen_array processes for multiple values of sigma
+
 import os
 import subprocess
 from concurrent.futures import ProcessPoolExecutor

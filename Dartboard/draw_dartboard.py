@@ -1,3 +1,5 @@
+# Script to generate a dartboard vector graphic
+
 from math import pi, sin, cos
 import cairo
 

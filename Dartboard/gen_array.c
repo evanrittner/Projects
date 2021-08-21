@@ -1,3 +1,10 @@
+/*
+** The project's main program. Generates a Python Numpy .npy file holding 
+** the expected score of each point on a darboard, given the throw standard 
+** deviation. For each point in the output array, it randomly generates 
+** throws aimed at that point, following a bivariate normal distribution 
+*/
+
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

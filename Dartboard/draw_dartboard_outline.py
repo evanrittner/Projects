@@ -1,4 +1,6 @@
-# ffmpeg A on top of B:
+# Script to generate an outline of a dartboard, to layer on top of the heatmap images
+
+# ffmpeg to layer A.png on top of B.png:
 # ffmpeg -i B.png -i A.png -filter_complex "[1]scale=iw/2:-1[b];[0:v][b] overlay" out.png
 
 from math import pi, sin, cos
