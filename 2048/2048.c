@@ -307,12 +307,6 @@ int main() {
     int score = 0;  // When two cells merge, score is increased by the sum of the merged cells
     int max = 1;    // The highest numbered cell made this game (saved as the log_2 of the max)
 
-#ifdef DEBUG
-    logfp = fopen("log.txt", "w");
-    setvbuf(logfp, NULL, _IONBF, 1);
-    srand(0); // fix random number generation for testing
-#endif
-
     // ncurses initialization
     initscr();
     cbreak();
@@ -331,6 +325,12 @@ int main() {
         );
         return 1;
     }
+    
+#ifdef DEBUG
+    logfp = fopen("log.txt", "w");
+    setvbuf(logfp, NULL, _IONBF, 1);
+    srand(0); // fix random number generation for testing
+#endif
 
     // Initialize prev_board to impossible state so that first '2' is placed
     for (int i = 0; i < (NROW * NCOL); i++) {
