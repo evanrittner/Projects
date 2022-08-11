@@ -12,4 +12,4 @@ This repository holds some personal projects I've worked on. Each, in its own di
   
 - **[Riddlers](Riddlers)**
   - Long-term, ongoing
-  - A collection of my solutions to the mathematically-themed puzzles and problems published weekly by [fivthirtyeight.com](https://www.fivethityeight.com).
+  - A collection of my solutions to the mathematically-themed puzzles and problems published weekly by [fivethirtyeight.com](https://www.fivethirtyeight.com).

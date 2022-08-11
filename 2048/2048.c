@@ -184,7 +184,7 @@ int get_direction() {
 
 /*
 **  Given a source game board and a direction to move, follow the rules of 2048,
-**  sliding an combining tiles, and write the result to output. To modify a board
+**  sliding and combining tiles, and write the result to output. To modify a board
 **  in-place, pass it as both input and output. direction should be one of enum
 **  DIRECTION. Returns the amount to increase the score from the move (i.e. the
 **  total value of all cells that combined during the move).
