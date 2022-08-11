@@ -13,3 +13,7 @@ This repository holds some personal projects I've worked on. Each, in its own di
 - **[Riddlers](Riddlers)**
   - Long-term, ongoing
   - A collection of my solutions to the mathematically-themed puzzles and problems published weekly by [fivethirtyeight.com](https://www.fivethirtyeight.com).
+
+- **[2048](2048)**
+  - Fall 2021
+  - A command-line implementation of the game 2048, using ncurses in C.
