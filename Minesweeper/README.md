@@ -1,7 +1,7 @@
 # Minesweeper
 
 <p align="middle">
-  <img src="/Minesweeper/images/solver.gif" width="600"/>
+  <img src="/Minesweeper/images/solver.gif" width="1000"/>
 </p>
 
 For this project, I implemented [Minesweeper](https://en.wikipedia.org/wiki/Minesweeper_(video_game)) as a command line based game in Python and ncurses. My main goals here were to first, gain familiarity with ncurses in Python, and second and more importantly, to design interesting algorithms for running the game and solving it.
@@ -29,8 +29,8 @@ When playing, WASD or arrow keys move the cursor; 'R' or left click reveals the 
 ### Solver
 I've included a number of cheats or assists in the game. The first, and mildest, reflects how the other algorithms 'view' the board, as well as how I think about it in my head while playing. I'm calling it "Reduced mode", since it simplifies the board down to only the currently-relevant information. First, it hides all tiles that are not near the hidden-revealed boarder: tiles that are still hidden, but are far away from any revealed tiles, cannot be solved yet, since they're too far away from all the information from the revealed tiles. Also, tiles that are deep within other revealed tiles are not useful, since they aren't near enough to any hidden tiles to provide any information. In Reduced mode, the only tiles shown are revealed tiles that neighbor hidden tiles, and hidden tiles that neighbor revealed tiles. Finally, since some of these remaining revealed tiles might neighbor flagged locations that were hidden, I subtract off the number of flagged tiles any revealed tiles are already neighboring. (You can think of this quantity as the tile's "bomb deficit".) To hopefully make this more clear, the image on the left is the board regularly, and on the right, it's in Reduced mode.
 
-<center> <img align="right" width="250" src="/Minesweeper/images/normal.jpg">
-<img align="right" width="250" src="/Minesweeper/images/reduced.jpg"> </center>
+<center> <img align="right" width="4050" src="/Minesweeper/images/normal.jpg">
+<img align="right" width="400" src="/Minesweeper/images/reduced.jpg"> </center>
 
 Now, onto the actual cheats. I first have a cheat that executes all "simple" moves. There are two situations that I've defined to yield "simple" moves:
 
