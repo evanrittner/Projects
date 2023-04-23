@@ -6,6 +6,10 @@ This repository holds some personal projects I've worked on. Each, in its own di
   - Summer 2021
   - Exploration of where on a dartboard it is optimal to aim, at different levels of accuracy.
 
+- **[Minesweeper](Minesweeper)**
+  - Spring 2023
+  - A graphical, command-line, Python-based implementation of the game Minesweeper, including a solver.
+
 - **[Date Tile Puzzle](Date%20Tile%20Puzzle)**
   - Summer 2021
   - Program to generate solutions to a tile puzzle.
