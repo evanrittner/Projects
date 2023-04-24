@@ -49,7 +49,7 @@ This simple solver works pretty well, but it doesn't stand a chance with the Exp
 6. After a certain depth, give up, and try a new assumption at the highest level (however, don't choose a tile for a new assumption that's already been checked by the process so far)
 7. If all hidden tiles on the reduced board have been involved in assumptions, and no conclusions resulted, we're stuck. Control is returned to the player
 
-This algorithm is not perfect, and certainly not fully optimized, but it is quite successful. Notably, however, it doesn't do any probability calculations, and so does not make guesses. My stance is that while the solver 'plays' on its own, it should never lose, and if it ever guessed, that'd be a risk. This also reduces the amount of work I have.
+This algorithm is not perfect, and certainly not fully optimized, but it is quite successful, especially on th Expert preset. So far, it has never given up in a position I could find a move in myself (which is the test of the algorithm I'm most able to perform). Notably, however, it doesn't do any probability calculations, and so does not make guesses. My stance is that while the solver 'plays' on its own, it should never lose, and if it ever guessed, that'd be a risk. This also reduces the amount of work I have to do.
 
 ### To-Do List
 * Support for modifications of almost all keybindings, without restarting the game: core functionality finished, just need to make the menu UI
