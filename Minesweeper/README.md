@@ -29,8 +29,8 @@ When playing, WASD or arrow keys move the cursor; 'R' or left click reveals the 
 ### Solver
 I've included a number of cheats or assists in the game. The first, and mildest, reflects how the other algorithms 'view' the board, as well as how I think about it in my head while playing. I'm calling it "Reduced mode", since it simplifies the board down to only the currently-relevant information. First, it hides all tiles that are not near the hidden-revealed boarder: tiles that are still hidden, but are far away from any revealed tiles, cannot be solved yet, since they're too far away from all the information from the revealed tiles. Also, tiles that are deep within other revealed tiles are not useful, since they aren't near enough to any hidden tiles to provide any information. In Reduced mode, the only tiles shown are revealed tiles that neighbor hidden tiles, and hidden tiles that neighbor revealed tiles. Finally, since some of these remaining revealed tiles might neighbor flagged locations that were hidden, I subtract off the number of flagged tiles any revealed tiles are already neighboring. (You can think of this quantity as the tile's "bomb deficit".) To hopefully make this more clear, the image on the left is the board regularly, and on the right, it's in Reduced mode.
 
-<center> <img align="right" width="400" src="/Minesweeper/images/normal.jpg">
-<img align="right" width="400" src="/Minesweeper/images/reduced.jpg"> </center>
+<center> <img align="right" width="400" src="/Minesweeper/images/reduced.jpg">
+<img align="right" width="400" src="/Minesweeper/images/normal.jpg"> </center>
 
 Now, onto the actual cheats. I first have a cheat that executes all "simple" moves. There are two situations that I've defined to yield "simple" moves:
 
@@ -39,8 +39,17 @@ Now, onto the actual cheats. I first have a cheat that executes all "simple" mov
 
 With just these two very simple rules, my "simple" solver can usually beat the Beginner and Intermediate presets. Pressing "K" will perform one simple move automatically (if any exist); pressing "J" will perform any and all simple moves repeatedly, until the game is won, or until there are no more simple moves. I should note that if the player flags any tiles incorrectly, neither this solver or the "smart" one I'll describe in a minute will catch it, and they'll probably both lose the game be revealing a bomb.
 
-This simple solver works pretty well, but it doesn't stand a chance with the Expert preset. To handle this, I wrote what I'm calling the "smart" solver.
+This simple solver works pretty well, but it doesn't stand a chance with the Expert preset. To handle this, I wrote what I'm calling the "smart" solver. The general algorithm is as follows:
 
+1. Exectute any existing simple moves first
+2. Make an assumption: from the reduced board, pick a hidden square. First, in one 'branch', assume it's a bomb, then in another, assume it isn't
+3. For each branch, apply simple moves until either 1) there's a contradiction, in which case the assumption was wrong, and the other must be correct, or 2) a dead-end is reached, and there are no more simple moves to execute in either branch. If a contradiction is found, perform the correct branch's moves and start from step 1.
+4. If both branches are dead ends, see if they agree on any moves. If so, perform those moves and start again from step 1
+5. If both branches are dead ends and they don't agree on any moves, make a new assumption within the branches. Now, however, there must be consensus across all four sub-branches to actually perform a move
+6. After a certain depth, give up, and try a new assumption at the highest level (however, don't choose a tile for a new assumption that's already been checked by the process so far)
+7. If all hidden tiles on the reduced board have been involved in assumptions, and no conclusions resulted, we're stuck. Control is returned to the player
+
+This algorithm is not perfect, and certainly not fully optimized, but it is quite successful. Notably, however, it doesn't do any probability calculations, and so does not make guesses. My stance is that while the solver 'plays' on its own, it should never lose, and if it ever guessed, that'd be a risk. This also reduces the amount of work I have.
 
 ### To-Do List
 * Support for modifications of almost all keybindings, without restarting the game: core functionality finished, just need to make the menu UI
@@ -49,4 +58,3 @@ This simple solver works pretty well, but it doesn't stand a chance with the Exp
 * Many small improvements to the smart solver, including better endgame behavior (like being able to reveal tiles that cannot be a bomb, or must be a bomb, deducible due to the remaining bomb count).
 * Modify the 'smart' solver to allow the user to only get a single move as help, instead of the computer 'taking over' when in this solving mode
 * Use the 'smart' solver to allow the user to play only solvable boards: the computer should only configure the board in ways that do not require any guessing in this mode. Maybe pre-generate suitable boards, instead of doing it while the user is playing?
-
